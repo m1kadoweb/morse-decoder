@@ -40,20 +40,19 @@ const MORSE_TABLE = {
 
 
 function decode(expr) {
-    var encod_let = [];
-    var decode_str = '';
+    let encod_let = [];
+    let decode_str = '';
 
-
-    for(let i = 0; i < expr.length / 10; i++) {  
-        encod_let[i] = expr.substr(i * 10, 10) 
+    for(let i =0; i < expr.length / 10; i++) {
+        encod_let[i] = expr.substr(i * 10, 10)
     }
 
-    for(let i = 0; i < encod_let.length; i++) {  
+    for(let i = 0; i < encod_let.length; i++) {
         encod_let[i] = encod_let[i].replace(/00/g, '').replace(/10/g, '.').replace(/11/g, '-')
         decode_str += MORSE_TABLE[encod_let[i]] || ' '
     }
-    
-    return decode_str.trim()
+    return decode_str
+
 }
 
 
